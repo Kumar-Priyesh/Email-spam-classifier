@@ -8,11 +8,9 @@ from nltk.stem.porter import PorterStemmer
 tfidf = pickle.load(open('vectorizer.pkl','rb'))
 model = pickle.load(open('model.pkl','rb'))
 
-# Download the 'punkt' resource if not already downloaded
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt')
+# Download the 'punkt'  and 'stopwords' resource if not already downloaded
+nltk.download('stopwords')
+nltk.download('punkt')
 
 def transform_text(text):
     text = text.lower()
